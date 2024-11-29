@@ -1,0 +1,23 @@
+class Produto:
+    def __init__(self, nome, estoque_maximo, venda_diaria, intervalo_entrega, estoque_atual):
+        self.nome = nome
+        self.estoque_maximo = estoque_maximo
+        self.venda_diaria = venda_diaria
+        self.intervalo_entrega = intervalo_entrega
+        self.estoque_atual = estoque_atual
+
+    def calcular_pedido(self):
+        # Se o estoque atual for menor que a demanda durante o intervalo, o pedido será igual ao estoque máximo
+        if self.estoque_atual < self.venda_diaria * self.intervalo_entrega:
+            pedido = self.estoque_maximo
+        else:
+            pedido = (self.venda_diaria * self.intervalo_entrega) + (self.estoque_maximo - self.estoque_atual)
+        return pedido
+
+
+# Exemplo de uso:
+
+# Criando produtos
+pao_frances = Produto(nome="Pão Francês", estoque_maximo=1000, venda_diaria=200, intervalo_entrega=2, estoque_atual=100)
+pao_queijo = Produto(nome="Pão de Queijo", estoque_maximo=500, venda_diaria=150, intervalo_entrega=3, estoque_atual=50)
+biscoito_queijo = 
